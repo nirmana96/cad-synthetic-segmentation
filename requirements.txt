@@ -1,0 +1,6 @@
+blenderproc>=2.8
+gradio>=6.0
+numpy>=1.24
+opencv-python-headless>=4.8
+pandas>=2.0
+pyyaml>=6.0

@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cad2coco"
+version = "0.1.0"
+description = "Synthetic instance-segmentation datasets (COCO polygons) from CAD models with BlenderProc"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Nirmana Wijesingha"}]
+keywords = ["synthetic data", "blenderproc", "coco", "instance segmentation", "computer vision", "cad"]
+dependencies = [
+    "blenderproc>=2.8",
+    "gradio>=6.0",
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pycocotools>=2.0.7", "ruff>=0.6", "trimesh>=4"]
+demo = ["numba>=0.59", "trimesh>=4", "playwright>=1.40"]
+
+[project.scripts]
+cad2coco = "cad2coco.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cad2coco*"]
+
+[tool.setuptools.package-data]
+cad2coco = ["blender/*.py"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"cad2coco/blender/render_scene.py" = ["E402", "I001"]  # BlenderProc must be imported first
+
+"cad2coco/app.py" = ["B008"]  # gr.Progress() as a default argument is the Gradio idiom
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

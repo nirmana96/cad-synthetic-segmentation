@@ -1,0 +1,38 @@
+# CAD2COCO generation settings. Every key is optional; missing keys use these defaults.
+# Use with: cad2coco generate model.obj -c configs/default.yaml
+dataset:
+  num_images: 200
+  width: 640
+  height: 640
+  seed: 42
+  valid_ratio: 0.1
+  test_ratio: 0.1
+scene:
+  instances_min: 1
+  instances_max: 4
+  distractors_max: 4
+  placement: free
+  object_size: 0.2
+  size_jitter: 0.15
+  spread_radius: 0.25
+  floor_probability: 0.85
+camera:
+  dist_min: 0.35
+  dist_max: 1.1
+  elev_min: 10.0
+  elev_max: 85.0
+  fov_min: 45.0
+  fov_max: 65.0
+  roll_max: 15.0
+appearance:
+  material_mode: random
+  lights_max: 3
+  light_min: 40.0
+  light_max: 400.0
+  samples: 64
+  noise_max: 6.0
+  blur_prob: 0.2
+annotation:
+  min_visible_px: 150
+  polygon_tolerance: 1.0
+  min_part_area: 12.0
