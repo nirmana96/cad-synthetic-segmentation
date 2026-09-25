@@ -85,20 +85,12 @@ conversion runs in plain Python, so the geometry code is unit-testable without B
 200 images of the three sample parts (flange, bracket, tee) with default settings: **533 annotated instances,
 2.7 per image, ~23 polygon vertices per instance**.
 
-<p align="center"><img src="docs/images/annotated_samples.jpg" width="820" alt="Annotated samples from the train split"></p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/dataset_stats_dark.png">
-  <img src="docs/images/dataset_stats_light.png" alt="Dataset statistics: instances per class, parts per image, instance size and polygon vertices">
-</picture>
+
 
 Classes come out balanced because parts are drawn uniformly per instance. Most instances cover 2–6 % of the image,
 which is typical for a multi-part scene seen from 0.45–1.0 m.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/randomisation_dark.png">
-  <img src="docs/images/randomisation_light.png" alt="Randomisation coverage: camera viewpoints, material finishes and background types">
-</picture>
 
 Camera viewpoints cover the configured distance and elevation ranges evenly, and finishes and backgrounds are
 spread across all options, so no single appearance dominates the training set.
@@ -128,10 +120,6 @@ python app.py            # or: cad2coco ui
 3. Pick a preset (**Quick look** first, to check scale and framing), adjust randomisation, and click **Generate**.
 4. Download the zip, or browse it in the **Inspect dataset** tab.
 
-<p align="center">
-  <img src="docs/images/app_setup.png" width="49%" alt="App: models, class table and randomisation settings">
-  <img src="docs/images/app_results.png" width="49%" alt="App: annotated gallery, split table and per-class chart">
-</p>
 
 Sample parts live in `examples/models/` (regenerate them with `python scripts/make_sample_models.py`).
 
