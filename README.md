@@ -65,17 +65,14 @@ flowchart LR
 
 **1. Load CAD.** Each model is centred and scaled, then placed at a chosen physical size.
 
-<p align="center"><img src="docs/images/cad_parts.png" width="820" alt="Three sample CAD parts: pipe flange, L-bracket and pipe tee"></p>
 
 **2. Randomise every image.** Parts, finishes, lights, floor, camera and clutter change per frame.
 
-<p align="center"><img src="docs/images/sample_renders.jpg" width="820" alt="Eight randomised synthetic renders"></p>
 
 **3–4. Render and annotate.** Blender writes an RGB image plus an instance-ID pass in which only the target parts
 have an ID. Each ID mask becomes COCO polygons. The distractor egg and the overlapping tees below show why the ID
 pass matters: the occluded parts of each mask are cut away automatically.
 
-<p align="center"><img src="docs/images/render_to_coco.png" width="820" alt="RGB render, instance-ID map and resulting COCO polygons side by side"></p>
 
 Rendering and annotation are deliberately separated: Blender only writes images and raw instance maps, and the COCO
 conversion runs in plain Python, so the geometry code is unit-testable without Blender.
