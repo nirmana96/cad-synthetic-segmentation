@@ -242,6 +242,4 @@ preview renderer and runs it through the real COCO conversion.
 [Gradio](https://www.gradio.app/) · [OpenCV](https://opencv.org/) · [pycocotools](https://github.com/cocodataset/cocoapi) ·
 [trimesh](https://trimesh.org/)
 
-## License
 
-MIT, see [LICENSE](LICENSE).
